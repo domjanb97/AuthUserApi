@@ -2731,23 +2731,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\domja\\.nuget\\packages\\": {},
+    "C:\\Users\\User\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Sulis_programozas\\WebApiProjectWithAuth\\authUserApi\\authUserApi.csproj",
+      "projectUniqueName": "E:\\Sulis_programozás\\Suli_programozas\\27_alkalom(WebApi2)\\AuthUserApi\\authUserApi\\authUserApi.csproj",
       "projectName": "authUserApi",
-      "projectPath": "C:\\Sulis_programozas\\WebApiProjectWithAuth\\authUserApi\\authUserApi.csproj",
-      "packagesPath": "C:\\Users\\domja\\.nuget\\packages\\",
-      "outputPath": "C:\\Sulis_programozas\\WebApiProjectWithAuth\\authUserApi\\obj\\",
+      "projectPath": "E:\\Sulis_programozás\\Suli_programozas\\27_alkalom(WebApi2)\\AuthUserApi\\authUserApi\\authUserApi.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "E:\\Sulis_programozás\\Suli_programozas\\27_alkalom(WebApi2)\\AuthUserApi\\authUserApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\domja\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2821,7 +2821,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.402/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

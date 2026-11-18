@@ -8,7 +8,7 @@ public partial class AuthuserContext : DbContext
 {
     public AuthuserContext()
     {
-        Database.EnsureCreated();
+        
     }
 
     public AuthuserContext(DbContextOptions<AuthuserContext> options)
