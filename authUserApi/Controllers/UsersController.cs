@@ -3,6 +3,7 @@ using authUserApi.Models.DTOs;
 using authUserApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace authUserApi.Controllers
 {
@@ -50,6 +51,35 @@ namespace authUserApi.Controllers
             {
                 return StatusCode(400, new {message = ex.Message});
             }
+
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginUserDto loginUserDto)
+        {
+            try
+            {
+                var user = await _context.Users.SingleOrDefaultAsync(u => u.Email == loginUserDto.Email);
+
+                if (user is null)
+                {
+                    return StatusCode(404, new { message = "Nincs ilyen email" });
+                }
+
+                var isValid = _passwordHasher.Verify(loginUserDto.Password!, user.Password!, user.Salt!);
+
+                if (isValid == true)
+                {
+                    return StatusCode(201, new { message = "Sikeres bejelentkezés", result = user });
+                }
+
+                return StatusCode(401, new { message = "Hibás email vagy jelszó", result = user });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(400, new { message = ex.Message });
+            }
+
 
         }
     }
