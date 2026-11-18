@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "authUserApi.Controllers.RolesController",
+    "Method": "NewRole",
+    "RelativePath": "roles/newRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newRoleDto",
+        "Type": "authUserApi.Models.DTOs.NewRoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "authUserApi.Controllers.UsersController",
     "Method": "NewUser",
     "RelativePath": "users/newUser",

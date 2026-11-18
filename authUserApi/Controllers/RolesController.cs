@@ -1,4 +1,5 @@
 ﻿using authUserApi.Models;
+using authUserApi.Models.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,38 @@ namespace authUserApi.Controllers
         public RolesController(AuthuserContext context)
         {
             _context = context;
+        }
+
+        [HttpPost("newRole")]
+        public async Task<IActionResult> NewRole([FromBody] NewRoleDto newRoleDto)
+        {
+            try
+            {
+                var role = new Role
+                {
+                    Id = Guid.NewGuid(),
+                    Name = newRoleDto.Name,
+                    RegTime = DateTime.Now
+                };
+
+                if (role is null)
+                {
+                    return StatusCode(404, new { message = "Nem jött létre szerepkör", result = role });
+                }
+
+                await _context.Roles.AddAsync(role);
+                await _context.SaveChangesAsync();
+
+                return StatusCode(201, new { message = "Felvéve", result = role });
+            }
+            catch(Exception ex)
+            {
+                if(ex.Message.Contains("Could not save changes. Please configure your entity"))
+                {
+                    return StatusCode(400, new { message = "Ilyen szerepkör már van"});
+                }
+                return StatusCode(500, new { message = "Szerver oldali hiba" });
+            }
         }
     }
 }

@@ -8,7 +8,6 @@ public partial class AuthuserContext : DbContext
 {
     public AuthuserContext()
     {
-        
     }
 
     public AuthuserContext(DbContextOptions<AuthuserContext> options)
@@ -19,6 +18,4 @@ public partial class AuthuserContext : DbContext
     public virtual DbSet<Role> Roles { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
-
-    
 }
