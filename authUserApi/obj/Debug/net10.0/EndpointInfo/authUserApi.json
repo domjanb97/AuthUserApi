@@ -45,6 +45,38 @@
         }
       }
     },
+    "/userrole/assingRole": {
+      "post": {
+        "tags": [
+          "UserRole"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssingRoleDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssingRoleDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssingRoleDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/users/newUser": {
       "post": {
         "tags": [
@@ -112,6 +144,19 @@
   },
   "components": {
     "schemas": {
+      "AssingRoleDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "roleId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
       "LoginUserDto": {
         "type": "object",
         "properties": {
@@ -168,6 +213,9 @@
   "tags": [
     {
       "name": "Roles"
+    },
+    {
+      "name": "UserRole"
     },
     {
       "name": "Users"
