@@ -32,6 +32,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "authUserApi.Controllers.UserRoleController",
+    "Method": "RemoveRole",
+    "RelativePath": "userrole/removeRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assingRoleDto",
+        "Type": "authUserApi.Models.DTOs.AssingRoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "authUserApi.Controllers.UsersController",
     "Method": "Login",
     "RelativePath": "users/login",

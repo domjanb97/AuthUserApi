@@ -32,10 +32,51 @@ namespace authUserApi.Controllers
                     return StatusCode(404, new { message = "nincs ilyen user vagy role" });
                 }
 
+                var isValid = user.Roles.Any(r => r.Id == assingRoleDto.RoleId);
+
+                if (isValid)
+                {
+                    return StatusCode(409, new { message = "A user-nek már van ilyen szerepköre" });
+                }
+
                 user.Roles.Add(role);
                 await _context.SaveChangesAsync();
 
                 return StatusCode(201, new { message = "Szerepkör felvéve" });
+            }
+            catch (Exception e)
+            {
+
+                return StatusCode(400, new { message = e.Message });
+            }
+        }
+
+        [HttpPost("removeRole")]
+        public async Task<IActionResult> RemoveRole([FromBody] AssingRoleDto assingRoleDto)
+        {
+            try
+            {
+                var user = await _context.Users.Include(u => u.Roles)
+                    .SingleOrDefaultAsync(u => u.Id == assingRoleDto.UserId);
+
+                var role = await _context.Roles.FindAsync(assingRoleDto.RoleId);
+
+                if (user is null || role is null)
+                {
+                    return StatusCode(404, new { message = "nincs ilyen user vagy role" });
+                }
+
+                var isValid = user.Roles.Any(r => r.Id == assingRoleDto.RoleId);
+
+                if (isValid)
+                {
+                    user.Roles.Remove(role);
+                    await _context.SaveChangesAsync();
+
+                    return StatusCode(201, new { message = "Szerepkör törölve" });
+                }
+
+                return StatusCode(409, new { message = "Nincs ilyen role vagy user" });
             }
             catch (Exception e)
             {
